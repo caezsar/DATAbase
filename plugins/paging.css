@@ -1,0 +1,15 @@
+
+.pg-normal {
+  padding:1px 3px;
+  background-color:#fff;
+  color:#3B5999;
+  cursor: pointer;
+}
+.pg-selected {
+	border:1px solid #3B5999;
+	padding:1px 3px;
+    color: #3B5999;
+    font-weight: bold;        
+    cursor: pointer;
+}
+    
