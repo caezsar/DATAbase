@@ -7,7 +7,7 @@ if($names){
 if($isdadmin =='admin')
 		{ 
 
-$sql = "SELECT * FROM info WHERE prenume like '%$names%'";
+$sql = "SELECT * FROM info WHERE nume LIKE '%$names%' or prenume LIKE '%$names%'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -72,7 +72,7 @@ $conn->close();
 
 else {
 
-$sql = "SELECT * FROM info WHERE nume like '%$names%' AND user_ids='$sessionid'";
+$sql = "SELECT * FROM info WHERE nume LIKE '%$names%' or prenume LIKE '%$names%' AND user_ids='$sessionid'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

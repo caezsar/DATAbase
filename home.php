@@ -1,6 +1,6 @@
 <?php
 
-include 'head.php';
+include_once 'head.php';
 
 
 if($isdadmin =='admin')
@@ -9,24 +9,32 @@ $sql = "select id, user_ids, in_user, nume, prenume, photo from info where user_
 $result = $conn->query($sql);
 $count = mysqli_num_rows($result);
 
+
+
+
 if ($result->num_rows > 0) {
     // output data of each row
 ?>
 
-       <div class="box">
-            <div class="box-header">
+          <div class="box box-warning">
+            <div class="box-header with-border">
+              <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+              </div>			
               <h3 class="box-title">Data for user: <?php echo $sessionname; ?> </h3>
             </div>
+			
             <!-- /.box-header -->
            <div class="box-body">
-              <table id="results" class="table table-hover table-bordered ">
+              <table id="example" class="table table-hover table-bordered ">
                 <thead>
 <?php
 				
-   echo "<tr><th>ID</th><th>IDs</th><th>Rec by</th><th>Name</th><th>Prenume</th><th>Delete</th><th>View</th>   </tr></thead><tbody>";
+   echo "<tr><th>Logo</th><th>ID</th><th>IDs</th><th>Rec by</th><th>Name</th><th>Suplimentar</th><th>Delete</th><th>View</th>   </tr></thead><tbody>";
     while($row = $result->fetch_assoc()) {
      
  echo "<tr>";
+ echo '<td><a href="view.php?id=' . $row['id'] . '&nume=' . $row['in_user'] . '"><img width="80px" height="42" src=user_data/' . $sessionname . '/'. $row['photo'] . '></a></td>';
 		echo '<td>' . $row['id'] . '</td>';
 		echo '<td>' . $row['user_ids'] . '</td>';
 		echo '<td>' . $row['in_user'] . '</td>';
@@ -91,10 +99,11 @@ if ($result->num_rows > 0) {
                 <thead>
 <?php
 
-   echo "<tr><th>ID</th><th>Name</th><th>Prenume</th><th>Delete</th><th>View</th>   </tr></thead><tbody>";
+   echo "<tr><th>Logo</th><th>ID</th><th>Name</th><th>Suplimentar</th><th>Delete</th><th>View</th>   </tr></thead><tbody>";
     while($row = $result->fetch_assoc()) {
      
  echo "<tr>";
+ echo '<td><a href="view.php?id=' . $row['id'] . '&nume=' . $row['in_user'] . '"><img width="80px" height="42" src=user_data/' . $sessionname . '/'. $row['photo'] . '></a></td>';
 		echo '<td>' . $row['id'] . '</td>';
 
 		echo '<td>' . $row['nume'] . '</td>';

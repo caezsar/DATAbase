@@ -39,9 +39,24 @@ include_once 'session_id.php';
   <script type="text/javascript" src="plugins/paging.js"></script>
   <link rel="stylesheet" href="plugins/paging.css">
   
+  <!--  TINYMCE editor
   <script type="text/javascript" src="plugins/tinymce/tinymce.min.js"></script>
   <script>tinymce.init({ selector:'textarea',  plugins: "link, image, code, anchor"  });</script>
+  -->
   
+   <script src="plugins/ckeditor-full/ckeditor.js"></script>
+   
+   
+  <!--  TABLE Order
+  -->  
+<script src="plugins/jquery-1.12.3.min.js"></script>  
+<script src="plugins/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="plugins/jquery.dataTables.min.css">
+
+<script type="text/javascript">
+ $(document).ready(function() { $('#example').DataTable();} );
+</script>
+		   
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -55,28 +70,46 @@ include_once 'session_id.php';
       <span class="logo-lg"><b>DATA</b>base</span>
     </a>
     <!-- Header Navbar: style can be found in header.less navbar navbar-default navbar-fixed-top-->
-    <nav class="navbar navbar-static-top">
+    <nav class="navbar navbar-fixed-top">
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
+     
 
+	 <a href="./all.php" class="sidebar-toggle" > All Tables</a>
+	  	 <a href="./home.php" class="sidebar-toggle" > Home</a>
       <div class="navbar-custom-menu">
+	  
         <ul class="nav navbar-nav">
 
+          <li class="dropdown user user-menu">  
+ <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+<span class="hidden-xs">
+	   <span class="label label-success"><i class="fa fa-user"></i> User: <?php echo $row['user_name']; ?></span>
+ </span> </a></li>
+ 
+ 
+           <li class="dropdown user user-menu">  
+ <a href="logout.php?logout" class="dropdown-toggle">
+<span class="hidden-xs">
+	   <span class="label label-danger"><i class="fa  fa-sign-out"></i> Log Out</span>
+ </span> </a></li>
+ 
+ 
 
-          <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
+		  
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-         
-              <span class="hidden-xs"><i class="fa fa-user"></i> Session ID:<strong> <?php echo $row['user_id']; ?></strong> <?php echo $isdadmin; ?></span>
+<span class="hidden-xs"> <span class="label label-warning"><i class="fa fa-cog"></i>  ID:  <?php echo $row['user_id']; echo " " . $isdadmin; ?></span>  </span>
             </a>
+
             <ul class="dropdown-menu">
  
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="uchpasswd.php" class="btn btn-default btn-flat">Change Pass</a>
             
                   <a href="logout.php?logout" class="btn btn-default btn-flat">Sign out</a>
                 </div>
@@ -85,9 +118,14 @@ include_once 'session_id.php';
           </li>
           <!-- Control Sidebar Toggle Button -->
           <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+            <a href="#" data-toggle="control-sidebar"><i class="fa fa-dashboard "></i></a>
           </li>
         </ul>
+	     <ul class="nav navbar-nav">
+
+
+		
+		
       </div>
     </nav>
   </header>

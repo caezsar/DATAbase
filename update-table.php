@@ -22,7 +22,7 @@ while($row = $result->fetch_assoc()) {
    <section class="content">
      <div class="row">
         <!-- left column -->
-        <div class="col-md-8">
+
           <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">Adauga informatii in baza de date</h3>
@@ -36,13 +36,18 @@ while($row = $result->fetch_assoc()) {
                   <input type="text" class="form-control" name="nume" value="<?php echo $row['nume']; ?>" required >
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Prenume</label>
+                  <label for="exampleInputPassword1">Suplimentar</label>
                   <input type="text" class="form-control" name="prenume" value="<?php echo $row['prenume']; ?>" required>
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputPassword1">Information</label>
-                  <p><textarea type="textarea" name="text" rows="10" cols="70" > <?php echo $row['text']; ?> </textarea>
+                  <p><textarea name="text" id="editor1" rows="10" cols="80" > <?php echo $row['text']; ?> </textarea>
+			<script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace( 'editor1' );
+            </script>
                 </div>
               </div>
 		
@@ -56,7 +61,7 @@ while($row = $result->fetch_assoc()) {
             </form>
           </div>
           <!-- /.box -->
-		  </div></div>
+		  </div>
 		  </section>
 <?php
   }

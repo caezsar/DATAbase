@@ -5,7 +5,7 @@ include 'head.php';
 if($isdadmin =='admin')
 		{ 
 
-$sql = "select * from info LIMIT 40";
+$sql = "select * from info LIMIT 140";
 $result = $conn->query($sql);
 $count = mysqli_num_rows($result);
 
@@ -13,18 +13,22 @@ if ($result->num_rows > 0) {
     // output data of each row
  ?>
 
-       <div class="box col-md-4 " >
-            <div class="box-header col-md-2">
+          <div class="box box-danger">
+            <div class="box-header with-border">
+              <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+              </div>			
               <h3 class="box-title">All Data: </h3>
             </div>
+			
             <!-- /.box-header -->
            <div class="box-body">
-              <table id="results" class="table table-bordered table-hover">
+              <table id="example" class="table table-bordered table-hover">
                 <thead>
 <?php
 
 
-   echo "<tr><th>ID</th><th>IDs</th><th>Rec by</th><th>Name</th><th>Prenume</th><th>Delete</th><th>View</th>   </tr></thead><tbody>";
+   echo "<tr><th>ID</th><th>IDs</th><th>Rec by</th><th>Name</th><th>Suplimentar</th><th>Delete</th><th>View</th>   </tr></thead><tbody>";
     while($row = $result->fetch_assoc()) {
      
  echo "<tr>";

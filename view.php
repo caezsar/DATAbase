@@ -1,6 +1,6 @@
 <?php
 
-include 'head.php';
+include_once 'head.php';
 
  if (isset($_GET['id']) && is_numeric($_GET['id']))
  {
@@ -17,7 +17,7 @@ if ($result->num_rows > 0) {
 	 while($row = $result->fetch_assoc()) {
  ?>
 
-          <div class="box box-primary">
+          <div class="box box-success">
             <div class="box-header with-border">
               <h3 class="box-title"><?php echo $row['nume'];?> </h3>
 
@@ -37,7 +37,7 @@ echo '<table class="table col-md-4" ><thead  ><tr ><th><a target="_blank" href="
 <?php
 
 
-   echo "<tr><th>ID</th><th>IDs</th><th>Rec by</th><th>Prenume</th><th>Data</th><th>#</th><th>#</th><th>#</th>    </tr></thead><tbody>";
+   echo "<tr><th>ID</th><th>IDs</th><th>Rec by</th><th>Suplimentar</th><th>Data</th><th>#</th><th>#</th><th>#</th>    </tr></thead><tbody>";
    
      
  echo "<tr>";
