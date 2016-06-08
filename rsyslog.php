@@ -5,7 +5,7 @@ include_once 'head.php';
 if($isdadmin =='admin')
 		{ 
 
-$sql = "select * from info LIMIT 140";
+$sql = "select * from SystemEvents ORDER BY ID DESC LIMIT 500";
 $result = $conn->query($sql);
 $count = mysqli_num_rows($result);
 
@@ -28,18 +28,19 @@ if ($result->num_rows > 0) {
 <?php
 
 
-   echo "<tr><th>ID</th><th>IDs</th><th>Rec by</th><th>Name</th><th>Suplimentar</th><th>Delete</th><th>View</th>   </tr></thead><tbody>";
+   echo "<tr><th>ID</th><th>ReceivedAt</th><th>Facility</th><th>Priority</th><th>FromHost</th><th>SysLogTag</th><th>Message</th><th>Delete</th>   </tr></thead><tbody>";
     while($row = $result->fetch_assoc()) {
      
  echo "<tr>";
-		echo '<td>' . $row['id'] . '</td>';
-		echo '<td>' . $row['user_ids'] . '</td>';
-		echo '<td>' . $row['in_user'] . '</td>';
-		echo '<td>' . $row['nume'] . '</td>';
-		echo '<td>' . $row['prenume'] . '</td>';
+		echo '<td>' . $row['ID'] . '</td>';
+		echo '<td>' . $row['ReceivedAt'] . '</td>';
+		echo '<td>' . $row['Facility'] . '</td>';
+		echo '<td>' . $row['Priority'] . '</td>';
+		echo '<td>' . $row['FromHost'] . '</td>';
+		echo '<td>' . $row['SysLogTag'] . '</td>';
+		echo '<td>' . $row['Message'] . '</td>';
 		
-		echo '<td><a href="delete-table.php?id=' . $row['id'] . '&photo=' . $row['photo'] . '&nume=' . $row['in_user'] . '&ids='.$row['user_ids']. '">Delete</a></td>';
-		echo '<td><a href="view.php?id=' . $row['id'] . '&nume=' . $row['in_user'] . '">View</a></td>';
+		echo '<td><a href="delete-rtable.php?id=' . $row['ID'] .'">Delete</a></td>';
 		echo "</tr>"; 
 
      }

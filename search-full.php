@@ -1,6 +1,6 @@
 <?php
 
-include 'head.php';
+include_once 'head.php';
 
 $names = mysqli_real_escape_string($conn, $_POST['names']);
 if($names){

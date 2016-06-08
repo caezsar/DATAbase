@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include_once 'dbconnect.php';
 include_once 'session_id.php';
 
@@ -212,6 +212,14 @@ if($isdadmin == 'admin'){
             <i class="fa fa-circle-o text-yellow"></i>
             <span>View Users</span>
           </a>
+        </li>
+		
+		<li class="treeview">
+          <a href="rsyslog.php">
+            <i class="fa fa-circle-o text-green"></i>
+            <span>LOGS</span>
+            <i class="fa fa-angle-left pull-right"></i>
+			</a>
         </li>
 <?php
 } else {

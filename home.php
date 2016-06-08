@@ -41,7 +41,7 @@ if ($result->num_rows > 0) {
 		echo '<td>' . $row['nume'] . '</td>';
 		echo '<td>' . $row['prenume'] . '</td>';
 		
-		echo '<td><a href="delete-table.php?id=' . $row['id'] . '&photo=' . $row['photo'] . '&nume=' . $nume . '&ids='.$row['user_ids']. '">Delete</a></td>';
+		echo '<td><a href="delete-table.php?id=' . $row['id'] . '&photo=' . $row['photo'] . '&nume=' . $row['in_user'] . '&ids='.$row['user_ids']. '">Delete</a></td>';
 		echo '<td><a href="view.php?id=' . $row['id'] . '&nume=' . $row['in_user'] . '">View</a></td>';
 
 

@@ -1,6 +1,6 @@
 <?php
 
-include 'head.php';
+include_once 'head.php';
 
 ?>
    <section class="content">

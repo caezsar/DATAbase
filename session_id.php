@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 $sql = ("SELECT user_name, user_id, admin FROM users WHERE user_id=".$_SESSION['user']);
 $result = $conn->query($sql);
 $count = mysqli_num_rows($result);	

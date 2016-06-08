@@ -1,6 +1,6 @@
 <?php
 
-include 'head.php';
+include_once 'head.php';
 
 
  // check if the 'id' variable is set in URL, and check that it is valid
